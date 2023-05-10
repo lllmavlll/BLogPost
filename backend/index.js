@@ -20,16 +20,16 @@ app.use(express.static(spath))
 
 mongoose.connect(process.env.MONGO) 
 .then(()=> {
-    // app.listen(PORT,()=>{
-    //     console.log(`running onn port https://localhost:${PORT}`)
-    // })
+    app.listen(PORT,()=>{
+        console.log(`running onn port https://localhost:${PORT}`)
+    })
 })
 .catch((err)=>console.log(err))
 
 
-app.listen(PORT,()=>{
-    console.log(`running onn port https://localhost:${PORT}`)
-})
+// app.listen(PORT,()=>{
+//     console.log(`running onn port https://localhost:${PORT}`)
+// })
 
 //----- creating a middleware -----//
 // app.use((req,res,next)=>{
@@ -55,7 +55,7 @@ app.set("views",temp_path)
 
 app.get('/',(req,res)=>{
     // res.send("yes! its working")
-    res.render('signin')
+    res.render('signup')
 });
 
 

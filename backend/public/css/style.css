@@ -3,7 +3,7 @@ html{
     box-sizing: border-box;
 }
 body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     padding: 0;
     margin: 0;
     
@@ -23,8 +23,60 @@ body{
 .container h1{
     font-size: 40px;
     color: white;
+    text-align: center;
 }
 .container h1 span{
 
     color:#2a90d8;
+}
+.container .form-fields{
+    color: white;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+.form-fields input{
+    height: 40px;
+    width: 400px;
+    margin-top: 10px;
+    background-color: #17181e;
+    outline: none;
+    color: white;
+    padding-left: 5px;
+    border: 1px solid #17181e;
+    font-size: 15px;
+}
+.form-fields input:focus{
+    border: 1px solid #2772ab;
+}
+/* .form-fields input:hover{
+    border: 1px solid gray;
+} */
+
+.login-btn input{
+    width: 400px;
+    height: 40px;
+    background:#2a90d8;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+
+
+}
+.login-btn input:hover{
+    background:#55a3da;
+
+}
+.container .signup-link{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+.container .signup-link a{
+    text-decoration: none;
+    color:#2a90d8;
+
 }

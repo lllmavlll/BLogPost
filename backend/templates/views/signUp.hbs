@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>signUp -blogPost</title>
+</head>
+<body class="signinBody">
+    <div class="container">
+        <h1>blog<span>Post</span></h1>
+        <form action="signUp" method="post">
+            <div class="form-fields">
+                <label for="email" name="email" value="">email address</label><br>
+                <input type="email">
+            </div>
+
+            <div class="form-fields">
+                <label for="username" name="username" value="">username</label><br>
+                <input type="text">
+            </div>
+
+            <div class="form-fields">
+                <label id="ptext1" for="password" name="password" value="">password</label><br>
+                <input id="pass1" type="password">
+            </div>
+
+            <div class="form-fields">
+                <label id="ptext2" for="password" name="password" value="">confirm password</label>  <br>
+                <input id="pass2" type="password" onkeyup="checkPass()">
+            </div>
+            <div class="login-btn">
+                <input type="submit" value="Sign Up" >
+            </div>
+            <div class="signup-link">
+                <p>already have an account? <a href="./signIn.hbs"> Login</a></p>
+                
+            </div>
+            
+
+        </form>
+    </div>
+    <script>
+        function checkPass(){
+
+        const pass =document.getElementById('pass1').value
+        const conPass =document.getElementById('pass2').value
+        const ptxt1 =document.getElementById('ptext1')
+        const ptxt2 =document.getElementById('ptext2')
+        
+            if(pass==conPass){
+                ptxt1.style.color = "rgb(65, 255, 65)" 
+                ptxt2.style.color = "rgb(65, 255, 65)" 
+            }else{
+                ptxt1.style.color = "rgb(255, 65, 65)" 
+                ptxt2.style.color = "rgb(255, 65, 65)" 
+            }
+       
+        }
+    </script>
+</body>
+</html>
