@@ -1,11 +1,12 @@
+const express =require("express")
 const userModel =require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const SECRET_KEY =process.env.SECRET_KEY
+const userinfo = express.Router()
 
-
-const signup =async(req,res)=>{
-   
+userinfo.post('/signUp', async(req,res)=>{
+    
     const  { username, password, email }= req.body;
     try {
         //--- checking for existing User -----//
@@ -29,20 +30,23 @@ const signup =async(req,res)=>{
 
         //----- responce -----//
         res.status(201).json({user:userResult, token:token})
+        res.render('home')
+
 
 
     } catch (error) {
-        res.status(500).json({message:"something went wrong"})
+        res.status(500).json({message:"something went wrong "})
     }
-}
 
-const signin = async (req,res)=>{
+})
 
-    const {email, password} = req.body
+userinfo.post('/signIn', async(req,res)=>{
+
+    const {username, password} = req.body
     try {
 
         //----- checking for existence of the user -----//
-        const existingUser = await userModel.findOne({ email : email })
+        const existingUser = await userModel.findOne({ username : username })
         if(!existingUser){
             return res.status(404).json({ message:"user not found"})
         }
@@ -56,19 +60,23 @@ const signin = async (req,res)=>{
         //----- creating JWT (jasonWebToken) -----//
         const token = jwt.sign({email : existingUser.email, id : existingUser._id},SECRET_KEY)
         res.status(200).json({user:existingUser, token:token})
+        res.render('home')
 
 
 
 
     } catch (error) {
-        res.status(500).json({message:"something went wrong"})
+        res.status(500).json({message:"something went wrong just now"})
+        
     }
 
-}
+})
 
 
 
 
 
 
-module.exports ={signin , signup}
+
+
+module.exports = userinfo
