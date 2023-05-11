@@ -8,10 +8,14 @@ const userSchema=mongoose.Schema({
         type:String,
         required:true
     },
+    confirmpassword:{
+        type:String,
+        required:true
+    },
     email:{
         type:String,
         required:true,
-        // unique:true
+        unique:true
     }
 },{timestamps:true})
 

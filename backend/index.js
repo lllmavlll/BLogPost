@@ -50,8 +50,9 @@ app.set("views",temp_path)
 //----- static files
 const spath = path.join(__dirname,'./public')
 app.use(express.static(spath))
-// app.use('/', userinfo)
-app.use(express.urlencoded({extended:false}))
+
+
+app.use(express.urlencoded({extended:false}))//----- getting data from the form/htmlpage -----//
 
 
 //----- routes or end points -----//
