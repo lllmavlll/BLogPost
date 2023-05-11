@@ -5,10 +5,11 @@ const cors =require('cors')
 // const noteRoute = require("./routes/notesRoute")
 const path =require('path')
 const app = express()
+const { signup, signin } = require('./controllers/userController');
+
 
 
 const dotenv =require('dotenv')
-const { userInfo } = require("os")
 const userinfo = require("./controllers/userController")
 dotenv.config()
 
@@ -49,7 +50,7 @@ app.set("views",temp_path)
 //----- static files
 const spath = path.join(__dirname,'./public')
 app.use(express.static(spath))
-app.use('/', userinfo)
+// app.use('/', userinfo)
 app.use(express.urlencoded({extended:false}))
 
 
@@ -63,6 +64,7 @@ app.get('/signup',(req,res)=>{
     res.render('signup')
 
 })
+app.post('/signup',signup)
 
 //----- signin -----//
 
@@ -70,10 +72,7 @@ app.get('/signin',(req,res)=>{
     res.render('signin')
 
 })
-
-
-
-
+app.post('/signin',signin)
 
 app.listen(PORT,()=>{
     console.log(`running onn port https://localhost:${PORT}`)
