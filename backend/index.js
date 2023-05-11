@@ -55,7 +55,7 @@ app.set("views",temp_path)
 
 app.get('/',(req,res)=>{
     // res.send("yes! its working")
-    res.render('signup')
+    res.render('index')
 });
 
 

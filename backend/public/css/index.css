@@ -1,0 +1,99 @@
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+}
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    padding: 0;
+    margin: 0;
+    background-color: #191b22;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    align-items: center;
+
+    
+}
+.ceter-container{
+    display: flex;
+    background-color: #393f4f;
+    /* justify-content: center; */
+    align-items: center;
+    width: 63%;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 8px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.ceter-container h2 {
+    padding-left:   20px;
+    cursor: pointer;
+}
+
+.ceter-container h2 span{
+    color:#2a90d8;
+
+}
+.ceter-container .navLi{
+    display: flex;
+    list-style: none;
+    gap: 15px;
+
+}
+.ceter-container ul li{
+    padding-left: 10px;
+    color: #8fa8c8;
+
+}
+.ceter-container ul li:hover{
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.ceter-container .signLinks{
+    right: 10px;
+    position: absolute;
+}
+.ceter-container .signLinks .linkLi{
+    display: flex;
+    float: left;
+    gap: 15px;
+}
+.ceter-container .signLinks .linkLi li{
+    list-style: none;
+    background-color: #4a5266;
+    padding: 7px 13px;
+    border-radius: 6px;
+
+}
+.ceter-container .signLinks a{
+    color: #8fa8c8;
+    text-decoration: none;
+}
+ .header-post{
+    display: flex;
+    flex-direction: column;
+    background-color: #393f4f;
+    align-items: center;
+    width: 63%;
+    margin-top: 10px;
+    border-radius: 8px;
+    height: 130px;
+    font-size: 15px;
+    color: #8fa8c8;
+ }
+ .header-post p{
+    font-weight: 500;
+ }
+ .main-post-display{
+    background-color: #393f4f;
+    width: 63%;
+    height: 1130px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-radius: 7px;
+ }
