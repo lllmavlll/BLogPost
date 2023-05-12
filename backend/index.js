@@ -37,10 +37,7 @@ app.use(cors())
 //----- Converting request body into JSON form ----//
 app.use(express.json())
 
-//-----using imported routes-----//
-// app.use('/signin',userRoute)
-// app.use('/signup',userRoute)
-// app.use('/notes',noteRoute)
+
 
 //----- view engine -----//
 const temp_path = path.join(__dirname,'./templates/views')
