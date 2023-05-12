@@ -21,10 +21,11 @@ const signup =async(req,res)=>{
             // }
 
             const hashedPassword =  await bcrypt.hash(password,10) //----- hashing password
+            const hashedConPassword =  await bcrypt.hash(conpassword,10) //----- hashing confirm  password
             const userResult = new userModel({
                 username:username,
                 password:hashedPassword,
-                confirmpassword:conpassword,
+                confirmpassword:hashedConPassword,
                 email:email,
             })
         const newUser =await userResult.save()
@@ -34,9 +35,10 @@ const signup =async(req,res)=>{
         
         //----- creating JWT (jasonWebToken) -----//
         const token = jwt.sign({email:userResult.email, id : userResult._id},SECRET_KEY)
+        // console.log(token)
         
         //----- responce -----//
-        return res.status(201).render("home")
+        return res.status(201).redirect("signin")
         
         }
         
@@ -70,7 +72,7 @@ const signin = async (req,res)=>{
         //----- creating JWT (jasonWebToken) -----//
         const token = jwt.sign({email : existingUser.email, id : existingUser._id},SECRET_KEY)
         // res.status(200).json({user:existingUser, token:token})
-       return res.status(200).render('home')
+       return res.status(200).redirect('home')
 
 
 

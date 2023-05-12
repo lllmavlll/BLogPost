@@ -1,21 +1,15 @@
 const express =require("express")
 const mongoose= require('mongoose')
 const cors =require('cors')
-// const userRoute = require("./routes/userRoute")
-// const noteRoute = require("./routes/notesRoute")
 const path =require('path')
-const app = express()
 const { signup, signin } = require('./controllers/userController');
-
+const noteRoute = require("./routes/notesRoute")
+const app = express()
 
 
 const dotenv =require('dotenv')
-const userinfo = require("./controllers/userController")
 dotenv.config()
-
 const PORT = process.env.PORT || 3000
-
-
 
 //----- mongo connect -----//
 
@@ -30,27 +24,24 @@ mongoose.connect(process.env.MONGO)
 //     console.log(`HTTP Mehod - ${req.method} URL - ${req.url}`)
 //     next()
 // })
+
+
 app.use(cors())
-
-
 
 //----- Converting request body into JSON form ----//
 app.use(express.json())
 
-
-
 //----- view engine -----//
 const temp_path = path.join(__dirname,'./templates/views')
-app.set("view engine", "hbs")
+app.set("view engine","ejs","hbs")
 app.set("views",temp_path)
 
 //----- static files
 const spath = path.join(__dirname,'./public')
 app.use(express.static(spath))
 
-
-app.use(express.urlencoded({extended:false}))//----- getting data from the form/htmlpage -----//
-
+//----- getting data from the form/htmlpage -----//
+app.use(express.urlencoded({extended:false}))
 
 //----- routes or end points -----//
 app.get('/',(req,res)=>{
@@ -71,6 +62,22 @@ app.get('/signin',(req,res)=>{
 
 })
 app.post('/signin',signin)
+
+//----- home page after sign in -----//
+app.get('/home',(req,res)=>{
+    const note =[{
+        title:"testing0",
+        date:Date.now(),
+        description:"test desc"
+
+
+    }]
+    res.render('home',{note:note})
+});
+
+//----- Crud for notes -----//
+app.use('/home',noteRoute)
+
 
 app.listen(PORT,()=>{
     console.log(`running onn port https://localhost:${PORT}`)
