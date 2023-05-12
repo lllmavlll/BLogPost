@@ -1,0 +1,13 @@
+<div class="form-fields">
+    <label for="title"  value="">Title</label><br>
+    <input required value="<%= newNote.title %>" type="title" name="title">
+</div>
+
+<div class="form-fields">
+    <label for="description"  value="">Description</label><br>
+    <textarea required  name="description" id="description" ><%= newNote.description %></textarea>
+</div>
+<div class="login-btn">
+    <button><a href="/home">BACK</a></button>
+    <input type="submit" value="POST">
+</div>

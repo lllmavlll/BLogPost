@@ -8,8 +8,8 @@ const createNote = async (req,res)=>{
     const newNote = new  noteModel({
         title:title,
         description:description,
-        username:req.username,
-        userId:req.userId
+        username:req.body.username,
+        userId:req.body.userId
     })
     try {
         await newNote.save();

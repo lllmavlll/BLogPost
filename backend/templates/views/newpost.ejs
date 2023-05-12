@@ -21,23 +21,13 @@
             </ul>
         </div>
     </div>
-    <div class="header-post ">
-        <h2>Post your new blog</h2>
-        <button class="new-post-btn"><a href="/home/newpost">new Post</a></button>
+    <div class="create-new-post">
+        <h1>Add a new Post</h1>
+        <form action="/home/newpost" method="post">
+            <%- include('_form_fields') %>
+        </form>
 
     </div>
-    <div class="main-post-display">
-        <% notes.forEach(notes=>{ %>
-            <div class="note-container">
-                <div class="note-card">
-                    <p class="card-title"><%= notes.title%></p>
-                    <p class="card-date"><%= notes.date.toLocaleDateString() %><span ><%= notes.date.toLocaleTimeString() %></span></p>
-                    <p class="card-desc"><%= notes.description%></p>
-                </div>
-            </div>
-
-        <% }) %>
-
-    </div>
+    
 </body>
 </html>

@@ -33,7 +33,7 @@ app.use(express.json())
 
 //----- view engine -----//
 const temp_path = path.join(__dirname,'./templates/views')
-app.set("view engine","ejs","hbs")
+app.set("view engine","ejs")
 app.set("views",temp_path)
 
 //----- static files
@@ -64,15 +64,33 @@ app.get('/signin',(req,res)=>{
 app.post('/signin',signin)
 
 //----- home page after sign in -----//
-app.get('/home',(req,res)=>{
-    const note =[{
+app.get('/home', (req,res)=>{
+    const notes =[{
         title:"testing0",
-        date:Date.now(),
+        date:new Date(),
+        description:"test"
+
+
+    },{
+        title:"testing1",
+        date: new Date(),
+        description:"test desvcvcvcvcvcvcvcvcvcvcvcvcvcvcvcvcvdfdf sdg sdg sdgsd gsdg sdg test desvcvcvcvcvcvcvcvcvcvcvcvcvcvcvcvcvdfdf sdg sdg sdgsd gsdg sdg "
+
+
+    },{
+        title:"testing2",
+        date: new Date(),
+        description:"test desc"
+
+
+    },{
+        title:"testing2",
+        date: new Date(),
         description:"test desc"
 
 
     }]
-    res.render('home',{note:note})
+    res.render('home',{notes:notes})
 });
 
 //----- Crud for notes -----//
