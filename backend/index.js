@@ -7,9 +7,7 @@ const { signup, signin } = require('./controllers/userController');
 const noteRoute = require("./routes/notesRoute")
 const app = express()
 
-// const bodyParser = require('body-parser')
 
-// app.use(bodyParser.urlencoded({ extended: true }));
 
 const dotenv =require('dotenv')
 dotenv.config()

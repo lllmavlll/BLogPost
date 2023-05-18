@@ -26,7 +26,7 @@ noteRoute.get('/newpost',(req,res)=>{
     res.render('newpost',{newNote:new noteModel })
 })
 noteRoute.get('/newpost/:id',async(req,res)=>{
-    const newNote = await noteModel.findById(req.params.id) //---error
+    const newNote =  noteModel.findById(req.params.id) //---error
     if(newNote== null) res.redirect('home')
   return  res.render('show',{newNote:newNote})
 })
