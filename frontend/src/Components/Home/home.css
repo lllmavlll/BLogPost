@@ -1,0 +1,226 @@
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+}
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    padding: 0;
+    margin: 0;
+    background-color: #191b22;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    color: white;
+    align-items: center;
+
+    
+}
+.ceter-container{
+    width: 70%;
+    display: flex;
+    background-color: #393f4f;
+    /* justify-content: center; */
+    align-items: center;
+    width: 63%;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 8px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.ceter-container h2 {
+    padding-left:   20px;
+    cursor: pointer;
+}
+
+.ceter-container h2 span{
+    color:#2a90d8;
+
+}
+.ceter-container .navLi{
+    display: flex;
+    list-style: none;
+    gap: 15px;
+
+}
+.ceter-container ul li{
+    padding-left: 10px;
+    color: #8fa8c8;
+
+}
+.ceter-container ul li:hover{
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.ceter-container .signLinks{
+    right: 10px;
+    position: absolute;
+}
+.ceter-container .signLinks .linkLi{
+    display: flex;
+    float: left;
+    gap: 15px;
+}
+.ceter-container .signLinks .linkLi li{
+    list-style: none;
+    background-color: #4a5266;
+    padding: 7px 13px;
+    border-radius: 6px;
+
+}
+.ceter-container .signLinks a{
+    color: #8fa8c8;
+    text-decoration: none;
+}
+ .header-post{
+    display: flex;
+    flex-direction: column;
+    background-color: #393f4f;
+    align-items: center;
+    width: 63%;
+    margin-top: 10px;
+    border-radius: 8px;
+    height: 130px;
+    font-size: 15px;
+    color: #8fa8c8;
+ }
+ .header-post p{
+    font-weight: 500;
+ }
+ .main-post-display{
+     width: 63%;
+     display: flex;
+     flex-wrap: wrap;
+     margin-top: 10px;
+     /* display: grid;
+     grid-template-columns: auto auto auto; */
+     border-radius: 7px;
+     /* align-items: center; */
+     justify-content:space-between;
+    }
+
+
+    .note-container{
+    background-color: #393f4f;
+    width:295px;
+    padding: 0 10px;
+    border-radius: 7px;
+    margin-bottom: 10px ;
+
+    /* overflow: hidden; */
+ }
+ .note-card{
+   
+    padding: 0 10px;
+    color: #95abc8;
+    position: relative;
+
+ }
+ .note-card .card-title{
+    font-size: 22px;
+
+ }
+ .note-card .card-desc{
+    font-size: 15px;
+
+ }
+ 
+ .note-card .card-date{
+     
+    font-size: 15px;
+    opacity: .6;
+    
+
+ }
+ .note-card .card-date span{
+  margin-left: 20px;
+
+ }
+ .create-new-post{
+    display: flex;
+    flex-direction: column;
+    background-color: #393f4f;
+    width: 61%;
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #8fa8c8;
+    padding: 15px ;
+
+ } 
+ .create-new-post h1{
+    padding-left: 20px;
+    padding-bottom: 35px;
+ }
+ .create-new-post form{
+    padding-left: 20px;
+ }
+ .form-fields label{
+    font-size: 20px;
+ }
+ .form-fields input,
+ .form-fields textarea{
+    height: 40px;
+    width: 85%;
+    margin: 10px 0;
+    background-color: #17181e;
+    outline: none;
+    color: white;
+    padding-left: 5px;
+    border: 1px solid #17181e;
+    font-size: 15px;
+    letter-spacing: .5px;
+}
+.form-fields input:focus{
+    border: 1px solid #2772ab;
+}
+.form-fields textarea:focus{
+    border: 1px solid #2772ab;
+}
+.login-btn input{
+    width: 100px;
+    height: 40px;
+    background:#2a90d8;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+
+}
+.login-btn button{
+    width: 100px;
+    height: 40px;
+    background:#2a90d8;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-right: 20PX;
+    border: none;
+    outline: none;
+}
+.login-btn button a,
+.new-post-btn a{
+    text-decoration: none;
+    color: white;
+}
+.login-btn input:hover{
+    background:#55a3da;
+}
+.login-btn button:hover{
+    background:#55a3da;
+}
+.new-post-btn{
+    width: 110px;
+    height: 35px;
+    font-size: 14px;
+    background:#2a90d8;
+    border-radius: 6px;
+    border: none;
+    text-transform: uppercase;
+}

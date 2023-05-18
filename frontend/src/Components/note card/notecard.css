@@ -1,0 +1,27 @@
+.note-card{
+   
+    padding: 0 10px;
+    color: #95abc8;
+    position: relative;
+
+ }
+ .note-card .card-title{
+    font-size: 22px;
+
+ }
+ .note-card .card-desc{
+    font-size: 15px;
+
+ }
+ 
+ .note-card .card-date{
+     
+    font-size: 15px;
+    opacity: .6;
+    
+
+ }
+ .note-card .card-date span{
+  margin-left: 20px;
+
+ }

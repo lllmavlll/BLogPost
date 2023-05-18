@@ -1,5 +1,5 @@
 const mongoose= require('mongoose')
-const noteSchema= mongoose.Schema({
+const noteSchema= new mongoose.Schema({
 
     title:{
         type:String,
@@ -9,12 +9,9 @@ const noteSchema= mongoose.Schema({
         type:String,
         required:true
     },
- 
-    createdAt:{
-        type:Date,
-        default: Date.now
-    }
+   
+
     
-})
+},{timestamps:true})
 
 module.exports = mongoose.model('Note',noteSchema)

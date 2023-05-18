@@ -25,29 +25,34 @@ noteRoute.put('/:id', auth, updateNote)
 noteRoute.get('/newpost',(req,res)=>{
     res.render('newpost',{newNote:new noteModel })
 })
-noteRoute.get('/:id',async(req,res)=>{
-    const newNote =  noteModel.findById(req.params.id)
-    // if(newNote== null) res.redirect('home')
-    res.render('show',{newNote:newNote})
+noteRoute.get('/newpost/:id',async(req,res)=>{
+    const newNote = await noteModel.findById(req.params.id) //---error
+    if(newNote== null) res.redirect('home')
+  return  res.render('show',{newNote:newNote})
 })
 
 noteRoute.post('/newpost',async(req,res)=>{
 
     const {title, description, }=req.body;
     
-    let newNote = new  noteModel({
+    let newNote = new noteModel({
         title:title,
         description:description,
+        // createdAt: new Date()  
      
     })
     try {
-        await newNote.save();
-
-        res.redirect(`id= ${newNote.id}`)
+        const cNotes=await noteModel.findOne({title:title})
+        if(cNotes){
+         return   res.json({message:"title alredy exists"})
+        }
+       
+            newNote = await newNote.save();
+            res.redirect(`newpost/${newNote.id}`)
+        // console.log(newNote)
     } catch (error) {
+        // console.log(error)
         res.render(`newpost`,{newNote:newNote})
-
-        
     }
 })
 

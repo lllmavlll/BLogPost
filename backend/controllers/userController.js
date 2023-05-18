@@ -35,7 +35,7 @@ const signup =async(req,res)=>{
         
         //----- creating JWT (jasonWebToken) -----//
         const token = jwt.sign({email:userResult.email, id : userResult._id},SECRET_KEY)
-        // console.log(token)
+        console.log(token)
         
         //----- responce -----//
         return res.status(201).redirect("signin")
@@ -58,14 +58,14 @@ const signin = async (req,res)=>{
         const existingUser = await userModel.findOne({ email : email })
         if(!existingUser){
             // return res.status(404).json({ message:"user not found"})
-          return   res.status(404).send("user not found")
+          return   res.status(404).send("<h1>user not found</h1>")
         }
     
         
         //----- matching Cridentials -----//
         const matchPassword = await  bcrypt.compare(password,existingUser.password)
         if(!matchPassword){
-         return   res.status(400).send('incorrect password ')
+         return   res.status(400).send('<h1>incorrect password</h1> ')
             
         }
       

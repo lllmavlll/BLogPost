@@ -2,10 +2,14 @@ const express =require("express")
 const mongoose= require('mongoose')
 const cors =require('cors')
 const path =require('path')
+
 const { signup, signin } = require('./controllers/userController');
 const noteRoute = require("./routes/notesRoute")
 const app = express()
 
+// const bodyParser = require('body-parser')
+
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 const dotenv =require('dotenv')
 dotenv.config()
@@ -68,25 +72,37 @@ app.get('/home', (req,res)=>{
     const notes =[{
         title:"testing0",
         date:new Date(),
-        description:"test"
+        description:"test description0"
 
 
     },{
         title:"testing1",
         date: new Date(),
-        description:"test desvcvcvcvcvcvcvcvcvcvcvcvcvcvcvcvcvdfdf sdg sdg sdgsd gsdg sdg test desvcvcvcvcvcvcvcvcvcvcvcvcvcvcvcvcvdfdf sdg sdg sdgsd gsdg sdg "
+        description:"test desvcvcvc"
 
 
     },{
         title:"testing2",
         date: new Date(),
-        description:"test desc"
+        description:"test description2"
 
 
     },{
-        title:"testing2",
+        title:"testing 3",
         date: new Date(),
-        description:"test desc"
+        description:"test description 3"
+
+
+    },{
+        title:"testing 4",
+        date: new Date(),
+        description:"test description 4"
+
+
+    },{
+        title:"testing 5",
+        date: new Date(),
+        description:"test description 5"
 
 
     }]
