@@ -35,7 +35,7 @@ const NewPost = () => {
             });
               const data = await res.json();
               console.error(data)
-            //   data.message? window.alert(data.message):""
+            //   data.message? window.alert(data.message):"" 
             if (data.message) {
                 alert('title already exisits')
             } 

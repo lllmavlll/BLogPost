@@ -10,16 +10,17 @@ const signup =async(req,res)=>{
     const conpassword =req.body.confirmpassword
     const username =req.body.username
     const email =req.body.email
+
+     //----- checking for existing user -----//
+     userModel.findOne({email:email})
     try {
        
+       if(email){
+        return res.status(422).json({messege:"user exist"})
+       }
         //----- matching password
         if(password===conpassword){
-             //--- checking for existing User -----//
-            //  const 
-            // if(existingUser){
-            //     return  res.status(400).send('<h1>user already exist</h1>')
-            // }
-
+        
             const hashedPassword =  await bcrypt.hash(password,10) //----- hashing password
             const hashedConPassword =  await bcrypt.hash(conpassword,10) //----- hashing confirm  password
             const userResult = new userModel({
@@ -28,10 +29,7 @@ const signup =async(req,res)=>{
                 confirmpassword:hashedConPassword,
                 email:email,
             })
-        const newUser =await userResult.save()
-
-       
-        
+        await userResult.save()
         
         //----- creating JWT (jasonWebToken) -----//
         const token = jwt.sign({email:userResult.email, id : userResult._id},SECRET_KEY)
@@ -39,10 +37,7 @@ const signup =async(req,res)=>{
         
         //----- responce -----//
         return res.status(201).redirect("signin")
-        
         }
-        
-     
         
     } catch (error) {
       return  res.status(400).send(error)
